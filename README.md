@@ -1,56 +1,101 @@
-# Intern-Chatbot
-Chatbot for Interns with various Features
-Step-by-Step Implementation Plan:
-Phase 1: Resource Upload & Data Structuring
-        1.	1.1. Gather and categorize all intern training resources (PDFs, Docs, Video links)
-        2.	1.2. Store metadata about each module in a database table (Module Name, Description, Resource Links)
-        3.	1.3. Build API endpoint: /get_modules, /get_module_details/{id} using FastAPI
+# 🚀 Intern-Chatbot  
+A smart chatbot system to assist interns with training resources, progress tracking, and engagement through gamification and recommendations.
 
-Phase 2: Chatbot Development (Knowledge-based + FAQ)
-        4.	2.1. Set up FastAPI backend with Chat endpoint: /ask
-        5.	2.2. Integrate OpenAI GPT API or Azure OpenAI
-        6.	2.3. Implement knowledge injection: Intern FAQs + Resource Map
-        7.	2.4. Optional: Build Slack/Teams Bot for chatbot interaction
+---
 
-Phase 3: Intern Progress Tracker
-        8.	3.1. Create database tables: Interns, Progress_Tracking, Completed_Modules
-        9.	3.2. Develop endpoints: /update_progress, /get_progress/{intern_id}
-        10.	3.3. Display intern progress on frontend dashboard
+## 📌 Step-by-Step Implementation Plan
 
-Phase 4: Automated Feedback / Questionnaire System
-        11.	4.1. Auto-trigger feedback forms after module completion
-        12.	4.2. Design quizzes using Google Forms or Typeform
-        13.	4.3. Store responses in DB
-        14.	4.4. Run Sentiment Analysis on text responses
+---
 
-Phase 5: AI-based Learning Recommendation Engine
-        15.	5.1. Define rule-based mapping for learning recommendations
-        16.	5.2. Expose recommendation endpoint: /recommendation/{intern_id}
-        17.	5.3. Display recommendations on intern dashboard or chatbot
+### 🗂️ Phase 1: Resource Upload & Data Structuring
+-  **1.1** Gather and categorize all intern training resources (PDFs, Docs, Video links)  
+-  **1.2** Store metadata in a database:  
+  `Module Name`, `Description`, `Resource Links`  
+-  **1.3** Build API Endpoints:  
+  - `GET /get_modules`  
+  - `GET /get_module_details/{id}`  
 
-Phase 6: Gamification Layer
-        18.	6.1. Add "Points" column to intern progress table
-        19.	6.2. Increment points on module completion
-        20.	6.3. Display badges/points on UI
-        21.	6.4. Optional: Leaderboard API: /leaderboard
+---
 
-Phase 7: Chatbot Context Memory
-        22.	7.1. Store last intern query and bot response in DB
-        23.	7.2. Enhance Chatbot endpoint to check and use context
-        24.	7.3. Enable conversations like "Next task?" with context-aware responses
+### 💬 Phase 2: Chatbot Development (Knowledge-based + FAQ)
+- 🔧 **2.1** Set up FastAPI backend with chat endpoint: `POST /ask`  
+- 🧠 **2.2** Integrate OpenAI GPT API or Azure OpenAI  
+- 📚 **2.3** Inject knowledge from:  
+  - Intern FAQs  
+  - Resource Map  
+- 💻 **2.4** *(Optional)* Build Slack or Teams bot for interaction  
 
-Phase 8: Manager Dashboard (Monitoring & Analytics)
-        25.	8.1. Develop dashboard to show intern list, progress %, sentiment status
-        26.	8.2. Backend API for dashboard: /manager_dashboard/{manager_id}
-        27.	8.3. Add graphs/charts using Plotly or Streamlit built-in charts
+---
 
-Phase 9: Auto-Generated Weekly Reporting
-        28.	9.1. Python script to query intern progress and feedback data
-        29.	9.2. Format into HTML report using Jinja2
-        30.	9.3. Send via SMTP Email or Slack Webhook
-        31.	9.4. Schedule using Cron or APScheduler
+### 📈 Phase 3: Intern Progress Tracker
+- 📊 **3.1** Create DB tables: `Interns`, `Progress_Tracking`, `Completed_Modules`  
+- 🛠️ **3.2** Develop APIs:  
+  - `POST /update_progress`  
+  - `GET /get_progress/{intern_id}`  
+- 🖥️ **3.3** Display intern progress on frontend dashboard  
 
-Phase 10: Dockerize & Deploy (For Demo)
-        32.	10.1. Write Dockerfile for backend
-        33.	10.2. Run locally or deploy on AWS EC2 (Free Tier)
-        34.	10.3. Perform QA and prepare demo script
+---
+
+### 📝 Phase 4: Automated Feedback / Questionnaire System
+- 🔁 **4.1** Auto-trigger feedback forms post-module completion  
+- 📋 **4.2** Design quizzes using **Google Forms** or **Typeform**  
+- 💾 **4.3** Store responses in the database  
+- 🧪 **4.4** Run **sentiment analysis** on text responses  
+
+---
+
+### 🎯 Phase 5: AI-Based Learning Recommendation Engine
+- 🧩 **5.1** Define rule-based logic for recommendations  
+- 🌐 **5.2** API Endpoint: `GET /recommendation/{intern_id}`  
+- 📱 **5.3** Show personalized recommendations on dashboard or chatbot  
+
+---
+
+### 🏆 Phase 6: Gamification Layer
+- 🪙 **6.1** Add `points` column to `Progress_Tracking`  
+- ➕ **6.2** Increment points on module completion  
+- 🧿 **6.3** Display badges/points on the UI  
+- 🧮 **6.4** *(Optional)* Leaderboard API: `GET /leaderboard`  
+
+---
+
+### 🧠 Phase 7: Chatbot Context Memory
+- 🗂️ **7.1** Store last user query + bot response in DB  
+- 🧠 **7.2** Enhance chatbot to be context-aware  
+- 🔁 **7.3** Enable flow like: `"What's my next task?"`  
+
+---
+
+### 📊 Phase 8: Manager Dashboard (Monitoring & Analytics)
+- 🧑‍💼 **8.1** Dashboard: intern list, % progress, feedback sentiment  
+- 🛠️ **8.2** Backend API: `GET /manager_dashboard/{manager_id}`  
+- 📈 **8.3** Add visual charts using **Plotly** / **Streamlit**  
+
+---
+
+### 📬 Phase 9: Auto-Generated Weekly Reporting
+- 🐍 **9.1** Python script to query progress + feedback data  
+- 🧾 **9.2** Format into HTML reports using **Jinja2**  
+- ✉️ **9.3** Send via **SMTP Email** or **Slack Webhook**  
+- ⏱️ **9.4** Schedule with **Cron** or **APScheduler**  
+
+---
+
+### 📦 Phase 10: Dockerize & Deploy (Demo Ready)
+- 🐳 **10.1** Create Dockerfile for FastAPI backend  
+- 🧪 **10.2** Run locally or deploy on **AWS EC2 (Free Tier)**  
+- ✅ **10.3** Perform QA and prepare demo walkthrough  
+
+---
+
+## 🔧 Tech Stack
+- **Backend:** FastAPI, SQLite/PostgreSQL  
+- **Frontend:** Streamlit / React (Optional)  
+- **AI/LLM:** OpenAI GPT / Azure OpenAI  
+- **DevOps:** Docker, AWS EC2  
+- **Monitoring:** Plotly, Cron, APScheduler  
+- **Forms & Feedback:** Google Forms, Typeform  
+- **Misc:** Jinja2, Slack API
+
+---
+
