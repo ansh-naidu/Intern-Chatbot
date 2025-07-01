@@ -1,11 +1,10 @@
 from fastapi import FastAPI
 from app.utils.database import Base, engine
-from app.models import training_module
-from app.routes import modules
+from app.models import training_module , intern , progress
+from app.routes import modules , interns 
+
+
 app = FastAPI()
-
-
-
 # Create tables
 Base.metadata.create_all(bind=engine)
 
@@ -17,3 +16,4 @@ def read_root():
 def health_check():
     return {"status": "Running"}
 app.include_router(modules.router)
+app.include_router(interns.router)
