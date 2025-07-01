@@ -14,7 +14,7 @@ def ask_chatbot(question: str, context: str = "") -> str:
     ]
 
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4.0-mini",
         messages=messages,
         max_tokens=150,
         temperature=0.7
