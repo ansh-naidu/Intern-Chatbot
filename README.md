@@ -1,4 +1,4 @@
-# 🚀 Intern-Chatbot  
+# 🚀 Intern-Tracker  
 A smart chatbot system to assist interns with training resources, progress tracking, and engagement through gamification and recommendations.
 
 ---
